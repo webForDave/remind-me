@@ -2,6 +2,10 @@
 <html>
     <body>
         <a href="{% url 'update_capsule' title=capsule.capsule_title %}">Update</a>
+        <form method="POST", action="{% url 'delete_capsule' title=capsule.capsule_title %}">
+            {% csrf_token %}
+            <button>Delete</button>
+        </form>
         <h1>{{ capsule.capsule_title }}</h1>
         <p>{{ capsule.capsule_content }}</p>
         <small>{{ capsule.delivery_date }}</small> |

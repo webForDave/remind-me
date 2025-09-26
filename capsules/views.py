@@ -56,3 +56,16 @@ def update_capsule(request, title):
             return render(request, "capsules/update.html", {"capsule": capsule, "error": f"Cannot update capsule: {e}"})
     else: 
         return render(request, "capsules/update.html", {"capsule": capsule})
+    
+@login_required
+def delete_capsule(request, title):
+
+    if request.method == "POST":
+        capsule = get_object_or_404(Capsule, sender=request.user, capsule_title=title)
+        try:
+            capsule.delete()
+            return redirect("home")
+        except Exception as e:
+            print(f"Error deleting capsule: {e}")
+            return HttpResponse(f"An error occured: {e}", status=500)
+    return redirect("home")

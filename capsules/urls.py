@@ -6,4 +6,5 @@ urlpatterns = [
     path("create/", views.create_capsule, name="create_capsule"),
     path("<str:title>/detail", views.capsule_detail, name="capsule_detail"),
     path("<str:title>/update", views.update_capsule, name="update_capsule"),
+    path("<str:title>/delete", views.delete_capsule, name="delete_capsule"),
 ]
