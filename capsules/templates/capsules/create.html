@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Create new capsule</h1>
+        <form method="POST", action="{% url "create_capsule" %}">
+            {% csrf_token %}
+            <div>
+                <label>Capsule title</label>
+                <input type="text" placeholder="Title" name="capsule_title" required>
+            </div>
+            <div>
+                <label>Capsule content</label>
+                <textarea cols=35 rows=8 name="capsule_content" required></textarea>
+            </div>
+            <div>
+                <label>Recipient email address</label>
+                <input type="email" placeholder="example@gmail.com" required name="recipient" />
+            </div>
+            <div>
+                <label>Delivery date</label>
+                <input type="datetime-local" required name="delivery_date"/>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
