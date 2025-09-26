@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Update capsule</h1>
+        <form method="POST", action="{% url "update_capsule" title=capsule.capsule_title %}">
+            {% csrf_token %}
+            <div>
+                <label>Capsule title</label>
+                <input type="text" placeholder="Title" name="capsule_title" value="{{capsule.capsule_title}}" required>
+            </div>
+            <div>
+                <label>Capsule content</label>
+                <textarea cols=35 rows=8 name="capsule_content" required>{{capsule.capsule_content}}</textarea>
+            </div>
+            <div>
+                <label>Recipient email address</label>
+                <input type="email" placeholder="example@gmail.com" required value="{{capsule.recipient}}" name="recipient" />
+            </div>
+            <div>
+                <label>Delivery date</label>
+                <input type="datetime-local" required value="{{capsule.delivery_date|date:'Y-m-d\TH:i'}}" name="delivery_date"/>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>

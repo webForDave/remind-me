@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <a href="{% url 'update_capsule' title=capsule.capsule_title %}">Update</a>
+        <h1>{{ capsule.capsule_title }}</h1>
+        <p>{{ capsule.capsule_content }}</p>
+        <small>{{ capsule.delivery_date }}</small> |
+        <small>{{ capsule.recipient }}</small>
+    </body>
+</html>

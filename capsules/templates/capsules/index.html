@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <h1>Time Travel</h1>
-        <p>Welcome aboard</p>
+        {% if capsules %}
+            {% for capsule in capsules %}
+                <a href="{% url "capsule_detail" title=capsule.capsule_title %}"><h1>{{ capsule.capsule_title }}</h1></a>
+            {% endfor %}
+        {% else %}
+            <p>No capsules found, please <a href="{% url "create_capsule" %}">create</a> new ones</p>
+        {% endif %}
     </body>
 </html>
